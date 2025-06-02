@@ -1,6 +1,6 @@
 from typing import TypedDict, List
 from langchain_core.messages import HumanMessage
-from langchain_openai import ChatOpenAI
+from langchain_google_genai import ChatGoogleGenerativeAI
 from langgraph.graph import StateGraph, START, END
 from dotenv import load_dotenv
 load_dotenv()
@@ -8,7 +8,7 @@ load_dotenv()
 class AgentState(TypedDict):
     messages: List[HumanMessage]
 
-llm = ChatOpenAI(model="gpt-4o")
+llm = ChatGoogleGenerativeAI(model = "gemini-1.5-flash")
 
 def process(state: AgentState) -> AgentState:
     response = llm.invoke(state["messages"])
