@@ -2,10 +2,12 @@ from typing import TypedDict,List
 from langchain_core.messages import HumanMessage
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langgraph.graph import StateGraph,START,END
+import google.generativeai as genai
+
 from dotenv import load_dotenv
 import os
+
 load_dotenv()
-import google.generativeai as genai
 
 gemini_api_key = os.getenv("GEMINI_API_KEY")
 
